@@ -10962,6 +10962,8 @@ a.text-dark:focus {
   }
 }
 
+/*--全体共通--*/
+
 html {
   height: 100%;
 }
@@ -10971,6 +10973,8 @@ body {
   margin: 0;
   background: #d6f5eb;
 }
+
+/*--ログイン・ユーザー登録--*/
 
 .icon-circle {
   width: 10em;
@@ -10985,6 +10989,8 @@ body {
 .border-gray {
   border-color: rgba(0, 0, 0, 0.18);
 }
+
+/*--メモ投稿画面--*/
 
 #memo-title,
 #memo-content {
