@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UserCreateRequest;
 
 class RegisterController extends Controller
 {
@@ -43,14 +44,8 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request)
+    public function register(UserCreateRequest $request)
     {
-        $request->validate([
-            'name' => 'required|max:255|regex:/^[a-zA-Z0-9]+$/',
-            'email' => 'required|max:255|email|unique:users',
-            'password' => 'required|max:255|min:8|regex:/^[a-zA-Z0-9]+$/',
-        ]);
-
         User::create([
         'name' => $request->name,
         'email' => $request->email,
