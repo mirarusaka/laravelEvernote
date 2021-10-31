@@ -17,13 +17,16 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
+
+     //$next($request) これがコントローラーアクション。returnに配置すればコントローラー前に、
+     //$responseをreturnに配置すればコントローラー後に処理できる。($nextはメソッドの一番初めに置く)
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                return redirect('/memo');
             }
         }
 
