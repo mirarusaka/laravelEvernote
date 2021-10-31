@@ -52,8 +52,6 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        dd($user);
-
         $this->guard()->login($user);
 
         return redirect()->route('memo.index');
